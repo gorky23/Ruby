@@ -1,0 +1,2 @@
+class BatteryController < ApplicationController
+end

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_part: MyString
+  second_part: MyString
+  third_part: MyString
+
+two:
+  first_part: MyString
+  second_part: MyString
+  third_part: MyString

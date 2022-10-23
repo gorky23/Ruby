@@ -1,0 +1,2 @@
+namespace :zoo do
+end

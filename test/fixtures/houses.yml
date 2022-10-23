@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  door_color: MyString
+  room_color: MyString
+  floor_color: MyString
+
+two:
+  door_color: MyString
+  room_color: MyString
+  floor_color: MyString
