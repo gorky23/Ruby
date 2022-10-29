@@ -1,14 +1,30 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Items</h1>
-
+<%= link_to "New item", new_item_path %>
 <div id="items" class="container-fluid">
-  <% @items.each do |item| %>
-    <%= render item %>
-    <p>
-      <%= link_to "Show this item", item %>
-    </p>
-  <% end %>
+  <table class="table">
+    <thead>
+        <tr>
+          <th>Name</th>
+          <th>Active</th>
+          <th>Borrowed</th>
+          <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @items.each do |item| %>
+            <tr>
+              <td><%= item.name %></td>
+              <td><%= item.active %></td>
+              <td><%= item.borrowed %></td>
+              <td>
+                <%= link_to "Show this item", item %>
+              </td>
+            </tr>
+        <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New item", new_item_path %>
+
