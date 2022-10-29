@@ -28,4 +28,6 @@ group :development do
   gem 'annotate'
   gem 'web-console'
   gem 'faker'
+  gem 'hotwire-livereload'
 end
+gem "redis"
