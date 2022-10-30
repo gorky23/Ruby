@@ -1,17 +1,23 @@
-<div id="<%= dom_id item %>">
-  <p>
-    <strong>Name:</strong>
-    <%= item.name %>
-  </p>
-
-  <p>
-    <strong>Active:</strong>
-    <%= item.active %>
-  </p>
-
-  <p>
-    <strong>Borrowed:</strong>
-    <%= item.borrowed %>
-  </p>
-
+<h1>Item</h1>
+<div id="<%= dom_id item %>" class="container-fluid">
+    <table class="table table-bordered">
+      <thead class="table-dark">
+      <tr>
+        <th>Name</th>
+        <th>Active</th>
+        <th>Borrowed</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.active ? '✅' : '❌' %></td>
+          <td><%= item.borrowed ? '✅' : '❌' %></td>
+          <td>
+            <%= link_to "Edit this item", edit_item_path(@item), class: 'btn btn-warning' %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 </div>

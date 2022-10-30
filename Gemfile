@@ -30,4 +30,3 @@ group :development do
   gem 'faker'
   gem 'hotwire-livereload'
 end
-gem "redis"
