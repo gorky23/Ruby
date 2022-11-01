@@ -1,0 +1,29 @@
+<h1>Items inactive</h1>
+<div id="items" class="container-fluid">
+  <table class="table table-bordered">
+    <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Active</th>
+      <th>Borrowed</th>
+      <th>Type</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.active ? '✅' : '❌' %></td>
+        <td><%= item.borrowed ? '✅' : '❌' %></td>
+        <td><%= item.item_type %></td>
+        <td>
+          <%= link_to "Show this item", item, class: 'btn btn-primary' %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+
