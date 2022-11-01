@@ -20,11 +20,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
-            <%= link_to 'All', root_path, class: ['nav-link', ('active' if current_page?(root_path)) ] %>
-            <%= link_to 'Active', active_items_path, class: ['nav-link', ('active' if current_page?(active_items_path)) ] %>
-            <%= link_to 'Inactive', inactive_items_path, class: ['nav-link', ('active' if current_page?(inactive_items_path)) ] %>
-            <%= link_to 'Borrowed', borrowed_items_path, class: ['nav-link', ('active' if current_page?(borrowed_items_path)) ] %>
-            <%= link_to 'On place', on_place_items_path, class: ['nav-link', ('active' if current_page?(on_place_items_path)) ] %>
+            <%= link_to 'All', root_path, class: nav_link_class(root_path) %>
+            <%= link_to 'Active', active_items_path, class: nav_link_class(active_items_path) %>
+            <%= link_to 'Inactive', inactive_items_path, class: nav_link_class(inactive_items_path)  %>
+            <%= link_to 'Borrowed', borrowed_items_path, class: nav_link_class(borrowed_items_path) %>
+            <%= link_to 'On place', on_place_items_path, class: nav_link_class(on_place_items_path) %>
           </ul>
         </div>
       </div>
