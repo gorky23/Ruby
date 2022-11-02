@@ -14,17 +14,17 @@
   <body class="container">
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <p class="navbar-brand" href="#">Pożyczarka</p>
+        <p class="navbar-brand" href="#"><%= pozyczarka_title %></p>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
-            <%= link_to 'All', root_path, class: nav_link_class(root_path) %>
-            <%= link_to 'Active', active_items_path, class: nav_link_class(active_items_path) %>
-            <%= link_to 'Inactive', inactive_items_path, class: nav_link_class(inactive_items_path)  %>
-            <%= link_to 'Borrowed', borrowed_items_path, class: nav_link_class(borrowed_items_path) %>
-            <%= link_to 'On place', on_place_items_path, class: nav_link_class(on_place_items_path) %>
+            <%= render 'shared/nav_link', label: 'All', path: root_path %>
+            <%= render 'shared/nav_link', label: 'Active', path: active_items_path %>
+            <%= render 'shared/nav_link', label: 'Inactive', path: inactive_items_path %>
+            <%= render 'shared/nav_link', label: 'Borrowed', path: borrowed_items_path %>
+            <%= render 'shared/nav_link', label: 'On place', path: on_place_items_path %>
           </ul>
         </div>
       </div>
