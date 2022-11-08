@@ -2,13 +2,27 @@
 
 <h1>Friends</h1>
 
-<div id="friends">
-  <% @friends.each do |friend| %>
-    <%= render friend %>
-    <p>
-      <%= link_to "Show this friend", friend, class: 'btn btn-success' %>
-    </p>
-  <% end %>
+<div id="friends" class="container-fluid">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Email</th>
+      <th scope="col">Actions</th>
+    </tr>
+    <tbody>
+    <% @friends.each do |friend| %>
+      <tr>
+        <td><%= friend.name %></td>
+        <td><%= friend.surname %></td>
+        <td><%= friend.email %></td>
+        <td>
+          <%= link_to "Show this friend", friend, class: 'btn btn-success' %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
-
 <%= link_to "New friend", new_friend_path, class: 'btn btn-primary' %>
