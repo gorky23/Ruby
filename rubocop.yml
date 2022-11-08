@@ -14,4 +14,19 @@ Style/Documentation:
   Exclude:
     - 'config/application.rb'
     - 'app/helpers/application_helper.rb'
+
+Style/IfUnlessModifier:
+  Exclude:
     - 'bin/bundle'
+
+Metrics/CyclomaticComplexity:
+  Max: 9
+
+Metrics/MethodLength:
+  Max: 12
+
+Metrics/PerceivedComplexity:
+  Max: 9
+
+Layout/LineLength:
+  Max: 198
