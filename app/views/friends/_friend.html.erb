@@ -13,6 +13,9 @@
       <td><%= friend.name %></td>
       <td><%= friend.surname %></td>
       <td><%= friend.email %></td>
+      <td>
+        <%= button_to "Delete", @friend, method: :delete, class: 'btn btn-danger' %>
+      </td>
     </tr>
     </tbody>
   </table>

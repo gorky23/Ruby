@@ -57,6 +57,38 @@ class FriendsController < ApplicationController
     end
   end
 
+  def school
+
+  end
+
+  def work
+
+  end
+
+  def party
+
+  end
+
+  def vacation
+
+  end
+
+  def shop
+
+  end
+
+  def gym
+
+  end
+
+  def restaurant
+
+  end
+
+  def gallery
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_friend
