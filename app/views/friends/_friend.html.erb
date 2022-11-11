@@ -1,17 +1,19 @@
 <div id="<%= dom_id friend %>">
-  <p>
-    <strong>Name:</strong>
-    <%= friend.name %>
-  </p>
-
-  <p>
-    <strong>Surname:</strong>
-    <%= friend.surname %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= friend.email %>
-  </p>
-
+  <h1>Friend <%= friend.name %></h1>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Email</th>
+      <th scope="col">Actions</th>
+    </tr>
+    <tbody>
+    <tr>
+      <td><%= friend.name %></td>
+      <td><%= friend.surname %></td>
+      <td><%= friend.email %></td>
+    </tr>
+    </tbody>
+  </table>
 </div>

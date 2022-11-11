@@ -1,5 +1,5 @@
 class Friend < ApplicationRecord
-  validates :name, length: { minimum: 5 }
+  validates :name, length: { minimum: 3 }
   validates :name, presence: true
 
   validates :surname, length: { minimum: 5 }
