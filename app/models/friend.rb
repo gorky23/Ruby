@@ -7,4 +7,6 @@ class Friend < ApplicationRecord
 
   validates :email, length: { minimum: 5 }
   validates :email, presence: true
+
+  enum place: %i[ school work party vacation shop gym restaurant gallery other ]
 end
