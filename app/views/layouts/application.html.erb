@@ -12,10 +12,10 @@
   <body class="container">
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <p class="navbar-brand"><b>APLIKACJA FRIENDS</b></p>
+        <p class="navbar-brand"><b><%= friends() %></b></p>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <%= link_to "Index", root_path, class: 'nav-link active'%>
+            <%= render 'partials/nav_link', label: 'Index', path: root_path %>
             <a class="nav-link" href="#">Features</a>
             <a class="nav-link" href="#">Pricing</a>
             <li class="nav-item dropdown">
@@ -23,14 +23,14 @@
                 A place of knowing
               </a>
               <ul class="dropdown-menu">
-                <%= link_to "School", school_friends_path, class: dropdown_link_class(school_friends_path) %>
-                <%= link_to "Work", work_friends_path, class: dropdown_link_class(work_friends_path) %>
-                <%= link_to "Party", party_friends_path, class: dropdown_link_class(party_friends_path) %>
-                <%= link_to "Vacation", vacation_friends_path, class: dropdown_link_class(vacation_friends_path) %>
-                <%= link_to "Shop", shop_friends_path, class: dropdown_link_class(shop_friends_path) %>
-                <%= link_to "Gym", gym_friends_path, class: dropdown_link_class(gym_friends_path) %>
-                <%= link_to "Restaurant", restaurant_friends_path, class: dropdown_link_class(restaurant_friends_path) %>
-                <%= link_to "Gallery", gallery_friends_path, class: dropdown_link_class(gallery_friends_path) %>
+                <%= render 'partials/dropdown_link', label: 'School', path: school_friends_path %>
+                <%= render 'partials/dropdown_link', label: 'Work', path: work_friends_path %>
+                <%= render 'partials/dropdown_link', label: 'Party', path: party_friends_path %>
+                <%= render 'partials/dropdown_link', label: 'Vacation', path: vacation_friends_path %>
+                <%= render 'partials/dropdown_link', label: 'Shop', path: shop_friends_path %>
+                <%= render 'partials/dropdown_link', label: 'Gym', path: gym_friends_path %>
+                <%= render 'partials/dropdown_link', label: 'Restaurant', path: restaurant_friends_path %>
+                <%= render 'partials/dropdown_link', label: 'Gallery', path: gallery_friends_path %>
               </ul>
             </li>
 
