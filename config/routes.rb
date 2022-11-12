@@ -2,7 +2,18 @@
 
 Rails.application.routes.draw do
   root 'friends#index'
-  resources :friends
+  resources :friends do
+    collection do
+      get :school
+      get :work
+      get :party
+      get :vacation
+      get :shop
+      get :gym
+      get :restaurant
+      get :gallery
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
