@@ -58,35 +58,35 @@ class FriendsController < ApplicationController
   end
 
   def school
-    @friends = Friend.where(place: :school)
+    @friends = Friend.school
   end
 
   def work
-    @friends = Friend.where(place: :work)
+    @friends = Friend.work
   end
 
   def party
-    @friends = Friend.where(place: :party)
+    @friends = Friend.party
   end
 
   def vacation
-    @friends = Friend.where(place: :vacation)
+    @friends = Friend.vacation
   end
 
   def shop
-    @friends = Friend.where(place: :shop)
+    @friends = Friend.shop
   end
 
   def gym
-    @friends = Friend.where(place: :gym)
+    @friends = Friend.gym
   end
 
   def restaurant
-    @friends = Friend.where(place: :restaurant)
+    @friends = Friend.restaurant
   end
 
   def gallery
-    @friends = Friend.where(place: :gallery)
+    @friends = Friend.gallery
   end
 
   private

@@ -23,14 +23,14 @@
                 A place of knowing
               </a>
               <ul class="dropdown-menu">
-                <%= link_to "School", school_friends_path, class: 'dropdown-item' %>
-                <%= link_to "Work", work_friends_path, class: 'dropdown-item' %>
-                <%= link_to "Party", party_friends_path, class: 'dropdown-item' %>
-                <%= link_to "Vacation", vacation_friends_path, class: 'dropdown-item' %>
-                <%= link_to "Shop", shop_friends_path, class: 'dropdown-item' %>
-                <%= link_to "Gym", gym_friends_path, class: 'dropdown-item' %>
-                <%= link_to "Restaurant", restaurant_friends_path, class: 'dropdown-item' %>
-                <%= link_to "Gallery", gallery_friends_path, class: 'dropdown-item' %>
+                <%= link_to "School", school_friends_path, class: dropdown_link_class(school_friends_path) %>
+                <%= link_to "Work", work_friends_path, class: dropdown_link_class(work_friends_path) %>
+                <%= link_to "Party", party_friends_path, class: dropdown_link_class(party_friends_path) %>
+                <%= link_to "Vacation", vacation_friends_path, class: dropdown_link_class(vacation_friends_path) %>
+                <%= link_to "Shop", shop_friends_path, class: dropdown_link_class(shop_friends_path) %>
+                <%= link_to "Gym", gym_friends_path, class: dropdown_link_class(gym_friends_path) %>
+                <%= link_to "Restaurant", restaurant_friends_path, class: dropdown_link_class(restaurant_friends_path) %>
+                <%= link_to "Gallery", gallery_friends_path, class: dropdown_link_class(gallery_friends_path) %>
               </ul>
             </li>
 
