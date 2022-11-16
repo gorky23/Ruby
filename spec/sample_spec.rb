@@ -1,5 +1,5 @@
 
-Rspec.describe 'sample spec' do
+RSpec.describe 'sample spec' do
   it 'true is true' do
     expect(true).to eq true
   end
