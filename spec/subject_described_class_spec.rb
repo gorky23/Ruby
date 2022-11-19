@@ -42,6 +42,23 @@ describe MyLogger do
       expect(logger.messages).to include message2
     end
 
+    it 'adds message to messages array 2' do
+
+      #Arrange
+      message1 = 'Hello Wrold'
+      message2 = 'Ruby is Awesome'
+      logger = MyLogger.new
+
+      #Act
+      logger.log(message1)
+      logger.log(message2)
+
+      #Assert
+      expect(logger.messages).to include message1
+      expect(logger.messages).to include message2
+
+    end
+
     it 'returns messages count' do
       expect(logger.messages_count).to eq 2
     end
