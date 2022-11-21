@@ -56,27 +56,45 @@ describe ItemsController, type: :controller do
 
   describe 'POST #create' do
     let(:item) { build(:item) }
+    subject(:create_request) { post :create, params: { item: item.attributes } }
     it 'returns http redirect' do
-      post :create, params: { item: item.attributes }
+      create_request
       expect(response).to have_http_status(:found)
+    end
+
+    it 'Redirects to the new item' do
+      create_request
+      expect(response).to redirect_to(item_path(Item.last))
     end
   end
 
   describe 'PUT #update' do
     let(:item) { create(:item) }
     let(:new_attributes) { attributes_for(:item) }
+    subject(:update_request) { put :update, params: { id: item.id, item: new_attributes } }
     it 'returns http redirect' do
-      put :update, params: { id: item.id, item: new_attributes }
+      update_request
       expect(response).to have_http_status(:found)
+    end
+
+    it 'Redirects to the updated item' do
+      update_request
+      expect(response).to redirect_to(item_path(item))
     end
   end
 
   describe 'DELETE #destroy' do
     let(:item) { create(:item) }
+    subject(:delete_request) { put :update, params: { id: item.id, item: new_attributes } }
     let(:new_attributes) { attributes_for(:item) }
     it 'returns http redirect' do
-      put :update, params: { id: item.id, item: new_attributes }
+      delete_request
       expect(response).to have_http_status(:found)
+    end
+
+    it 'Redirect to the items index' do
+      delete_request
+      expect(response).to redirect_to(item_path)
     end
   end
 
