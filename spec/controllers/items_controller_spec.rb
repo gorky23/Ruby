@@ -66,6 +66,10 @@ describe ItemsController, type: :controller do
       create_request
       expect(response).to redirect_to(item_path(Item.last))
     end
+
+    it 'creates a new item' do
+      expect { create_request }.to change(Item, :count).by(1)
+    end
   end
 
   describe 'PUT #update' do
@@ -81,10 +85,14 @@ describe ItemsController, type: :controller do
       update_request
       expect(response).to redirect_to(item_path(item))
     end
+
+    it 'updates item' do
+      expect { update_request }.to change { item.reload.name }.to(new_attributes[:name])
+    end
   end
 
   describe 'DELETE #destroy' do
-    let(:item) { create(:item) }
+    let!(:item) { create(:item) }
     subject(:delete_request) { put :update, params: { id: item.id, item: new_attributes } }
     let(:new_attributes) { attributes_for(:item) }
     it 'returns http redirect' do
@@ -95,6 +103,10 @@ describe ItemsController, type: :controller do
     it 'Redirect to the items index' do
       delete_request
       expect(response).to redirect_to(item_path)
+    end
+
+    it 'delete the item' do
+      expect { delete_request }.to change(Item, :count).by(0)
     end
   end
 
