@@ -31,6 +31,11 @@
     <%= form.select :item_type, Item.item_types.keys, { include_blank: 'Select item types....' }, class: 'form-select' %>
   </div>
 
+  <div class="form-group mt-2 mb-2">
+    <%= form.label :item_type %>
+    <%= form.select :item_type, Item.item_types.keys, {  }, class: 'form-select', disabled: true %>
+  </div>
+
   <div>
     <%= form.submit class: 'btn btn-success' %>
   </div>
