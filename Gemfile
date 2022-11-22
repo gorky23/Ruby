@@ -39,4 +39,5 @@ group :test do
   gem 'database_cleaner-active_record'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'rails-controller-testing'
+  gem 'capybara'
 end
