@@ -9,6 +9,7 @@ class Friend < ApplicationRecord
   validates :email, presence: true
 
   enum place: %i[ school work party vacation shop gym restaurant gallery other ]
+  validates :place, inclusion: { in: places.keys }
 
   scope :school, -> { where(place: :school) }
   scope :work, -> { where(place: :work) }
