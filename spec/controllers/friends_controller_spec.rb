@@ -1,6 +1,6 @@
 describe FriendsController, type: :controller do
   describe 'GET #index' do
-    it 'returns hhtp success' do
+    it 'returns http success' do
       get :index
       expect(response).to have_http_status(:ok)
     end
@@ -55,6 +55,62 @@ describe FriendsController, type: :controller do
     it 'returns https redirect' do
       delete :destroy, params: { id: friend.id }
       expect(response).to have_http_status(302)
+    end
+  end
+
+  describe 'GET #school' do
+    it 'returns http success' do
+      get :school
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe 'GET #work' do
+    it 'returns http success' do
+      get :work
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe 'GET #party' do
+    it 'returns http success' do
+      get :party
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe 'GET #vacation' do
+    it 'returns http success' do
+      get :vacation
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe 'GET #shop' do
+    it 'returns http success' do
+      get :shop
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe 'GET #gym' do
+    it 'returns http success' do
+      get :gym
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe 'GET #restaurant' do
+    it 'returns http success' do
+      get :restaurant
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe 'GET #gallery' do
+    it 'returns http success' do
+      get :gallery
+      expect(response).to have_http_status(:ok)
     end
   end
 end
