@@ -67,6 +67,10 @@ describe FriendsController, type: :controller do
       create_request
       expect(response).to redirect_to(friend_path(Friend.last))
     end
+
+    it 'creates a new friend' do
+      expect { create_request }.to change(Friend, :count).by(1)
+    end
   end
 
   describe 'PUT #update' do
@@ -83,10 +87,14 @@ describe FriendsController, type: :controller do
       update_request
       expect(response).to redirect_to(friend_path(friend))
     end
+
+    it 'update friend' do
+      expect { update_request }.to change { friend.reload.name }.to(new_attributes[:name])
+    end
   end
 
   describe 'DELETE #destroy' do
-    let(:friend) { create(:friend) }
+    let!(:friend) { create(:friend) }
     subject(:destroy_request) { delete :destroy, params: { id: friend.id } }
 
     it 'returns https redirect' do
@@ -97,6 +105,10 @@ describe FriendsController, type: :controller do
     it 'redirects to index in friend' do
       destroy_request
       expect(response).to redirect_to(friends_path)
+    end
+
+    it 'delete friend in app' do
+      expect { destroy_request }.to change(Friend, :count).by(-1)
     end
   end
 
