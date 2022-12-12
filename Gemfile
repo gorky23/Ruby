@@ -62,6 +62,7 @@ group :development, :test do
   gem 'database_cleaner-active_record'
   gem 'faker'
   gem 'rails-controller-testing'
+  gem "capybara"
 end
 
 group :development do
