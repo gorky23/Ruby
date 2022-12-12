@@ -1,23 +1,41 @@
 describe FriendsController, type: :controller do
   describe 'GET #index' do
+    subject(:index_request) { get :index }
     it 'returns http success' do
-      get :index
+      index_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'renders index template' do
+      index_request
+      expect(response).to render_template('index')
     end
   end
 
   describe 'GET #show' do
     let(:friend) { create(:friend) }
+    subject(:show_request) { get :show, params: { id: friend.id } }
     it 'returns http success' do
-      get :show, params: { id: friend.id }
+      show_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'show template' do
+      show_request
+      expect(response).to render_template('show')
     end
   end
 
   describe 'Get #new' do
+    subject(:new_request) { get :new }
     it 'returns http success' do
-      get :new
+      new_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'render new template in app friend' do
+      new_request
+      expect(response).to render_template('new')
     end
   end
 
@@ -83,58 +101,106 @@ describe FriendsController, type: :controller do
   end
 
   describe 'GET #school' do
+    subject(:school_request) { get :school }
     it 'returns http success' do
-      get :school
+      school_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'render school template' do
+      school_request
+      expect(response).to render_template('school')
     end
   end
 
   describe 'GET #work' do
+    subject(:work_request) { get :work }
     it 'returns http success' do
-      get :work
+      work_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'render work template' do
+      work_request
+      expect(response).to render_template('work')
     end
   end
 
   describe 'GET #party' do
+    subject(:party_request) { get :party }
     it 'returns http success' do
-      get :party
+      party_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'render party tamplate' do
+      party_request
+      expect(response).to render_template('party')
     end
   end
 
   describe 'GET #vacation' do
+    subject(:vacation_request) { get :vacation }
     it 'returns http success' do
-      get :vacation
+      vacation_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'render vacation template' do
+      vacation_request
+      expect(response).to render_template('vacation')
     end
   end
 
   describe 'GET #shop' do
+    subject(:shop_request) { get :shop }
     it 'returns http success' do
-      get :shop
+      shop_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'render shop template' do
+      shop_request
+      expect(response).to render_template('shop')
     end
   end
 
   describe 'GET #gym' do
+    subject(:gym_request) { get :gym }
     it 'returns http success' do
-      get :gym
+      gym_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'render gym template' do
+      gym_request
+      expect(response).to render_template('gym')
     end
   end
 
   describe 'GET #restaurant' do
+    subject(:restaurant_request) { get :restaurant }
     it 'returns http success' do
-      get :restaurant
+      restaurant_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'render restaurant template' do
+      restaurant_request
+      expect(response).to render_template('restaurant')
     end
   end
 
   describe 'GET #gallery' do
+    subject(:gallery_request) { get :gallery }
     it 'returns http success' do
-      get :gallery
+      gallery_request
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'render gallery template' do
+      gallery_request
+      expect(response).to render_template('gallery')
     end
   end
 end
