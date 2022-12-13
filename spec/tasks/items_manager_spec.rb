@@ -6,7 +6,7 @@ describe ItemsManager do
   let!(:user) { create(:user) }
 
   it 'fixes items and users association' do
-    items.manager.fix_items_and_users_associations(user: user)
+    manager.fix_items_and_users_associations(user: user)
     items.each do |item|
       expect(item.reload.user).to eq user
     end
