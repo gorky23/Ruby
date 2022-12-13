@@ -1,0 +1,3 @@
+class ItemsManager
+
+end
