@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 describe ItemsController, type: :controller do
   describe 'GET #index' do
     subject(:index_request) { get :index }
+
     it 'returns https success' do
       index_request
       expect(response).to have_http_status(:ok)
@@ -13,8 +16,10 @@ describe ItemsController, type: :controller do
   end
 
   describe 'GET #show' do
-    let(:item) { create(:item) }
     subject(:show_request) { get :show, params: { id: item.id } }
+
+    let(:item) { create(:item) }
+
     it 'returns http success' do
       show_request
       expect(response).to have_http_status(:ok)
@@ -28,8 +33,9 @@ describe ItemsController, type: :controller do
 
   describe 'GET #new' do
     subject(:new_request) { get :new }
+
     it 'returns http success' do
-      :new_request
+      new_request
       expect(response).to have_http_status(:ok)
     end
 
@@ -40,8 +46,9 @@ describe ItemsController, type: :controller do
   end
 
   describe 'GET #edit' do
-    let(:item) { create(:item) }
     subject(:edit_request) { get :edit, params: { id: item.id } }
+
+    let(:item) { create(:item) }
 
     it 'returns http success' do
       edit_request
@@ -55,8 +62,10 @@ describe ItemsController, type: :controller do
   end
 
   describe 'POST #create' do
-    let(:item) { build(:item) }
     subject(:create_request) { post :create, params: { item: item.attributes } }
+
+    let(:item) { build(:item) }
+
     it 'returns http redirect' do
       create_request
       expect(response).to have_http_status(:found)
@@ -73,9 +82,11 @@ describe ItemsController, type: :controller do
   end
 
   describe 'PUT #update' do
+    subject(:update_request) { put :update, params: { id: item.id, item: new_attributes } }
+
     let(:item) { create(:item) }
     let(:new_attributes) { attributes_for(:item) }
-    subject(:update_request) { put :update, params: { id: item.id, item: new_attributes } }
+
     it 'returns http redirect' do
       update_request
       expect(response).to have_http_status(:found)
@@ -92,9 +103,11 @@ describe ItemsController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    let!(:item) { create(:item) }
     subject(:delete_request) { put :update, params: { id: item.id, item: new_attributes } }
+
+    let!(:item) { create(:item) }
     let(:new_attributes) { attributes_for(:item) }
+
     it 'returns http redirect' do
       delete_request
       expect(response).to have_http_status(:found)
@@ -140,9 +153,10 @@ describe ItemsController, type: :controller do
 
   describe 'Get #active' do
     subject(:active_request) { get :active }
+
     it 'returns http success' do
-      :active_request
-      expect(response).to have_http_status(200)
+      active_request
+      expect(response).to have_http_status(:ok)
     end
 
     it 'Renders the active template' do
@@ -153,9 +167,10 @@ describe ItemsController, type: :controller do
 
   describe 'Get #inactive' do
     subject(:inactive_request) { get :inactive }
+
     it 'returns http success' do
-      :inactive_request
-      expect(response).to have_http_status(200)
+      inactive_request
+      expect(response).to have_http_status(:ok)
     end
 
     it 'Renders the inactive template' do
@@ -166,9 +181,10 @@ describe ItemsController, type: :controller do
 
   describe 'Get #borrowed' do
     subject(:borrowed_request) { get :borrowed }
+
     it 'returns http success' do
-      :borrowed_request
-      expect(response).to have_http_status(200)
+      borrowed_request
+      expect(response).to have_http_status(:ok)
     end
 
     it 'Renders the borrowed template' do
@@ -179,9 +195,10 @@ describe ItemsController, type: :controller do
 
   describe 'Get #on_place' do
     subject(:on_place_request) { get :on_place }
+
     it 'returns http success' do
-      :on_place_request
-      expect(response).to have_http_status(200)
+      on_place_request
+      expect(response).to have_http_status(:ok)
     end
 
     it 'Renders the on_place template' do

@@ -2,6 +2,6 @@
 
 module ApplicationHelper
   def pozyczarka_title
-    "Pozyczarka"
+    'Pozyczarka'
   end
 end

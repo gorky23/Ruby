@@ -1,7 +1,9 @@
-p "Generating fake utems"
+# frozen_string_literal: true
+
+Rails.logger.debug 'Generating fake utems'
 
 20.times do
   Item.find_or_create_by(name: Faker::Books::CultureSeries.book, active: true, borrowed: false)
 end
 
-p "#{Item.count} items generated"
+Rails.logger.debug "#{Item.count} items generated"

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 RSpec.describe 'sample spec' do
   it 'true is true' do
