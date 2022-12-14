@@ -6,6 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
+gem 'devise'
 gem 'jbuilder'
 gem 'jsbundling-rails'
 gem 'pg', '~> 1.1'
@@ -15,7 +16,6 @@ gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'devise'
 
 group :development, :test do
   gem 'brakeman'
@@ -26,7 +26,6 @@ group :development, :test do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
-  gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
 end
 
 group :development do
