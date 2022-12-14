@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 describe ItemsController, type: :controller do
+  let(:user) { create(:user) }
+
+  before do
+    sign_in user
+  end
+
   describe 'GET #index' do
     subject(:index_request) { get :index }
 
@@ -18,7 +24,7 @@ describe ItemsController, type: :controller do
   describe 'GET #show' do
     subject(:show_request) { get :show, params: { id: item.id } }
 
-    let(:item) { create(:item) }
+    let(:item) { create(:item, user: user) }
 
     it 'returns http success' do
       show_request
@@ -48,7 +54,7 @@ describe ItemsController, type: :controller do
   describe 'GET #edit' do
     subject(:edit_request) { get :edit, params: { id: item.id } }
 
-    let(:item) { create(:item) }
+    let(:item) { create(:item, user: user) }
 
     it 'returns http success' do
       edit_request
@@ -64,7 +70,7 @@ describe ItemsController, type: :controller do
   describe 'POST #create' do
     subject(:create_request) { post :create, params: { item: item.attributes } }
 
-    let(:item) { build(:item) }
+    let(:item) { build(:item, user: user) }
 
     it 'returns http redirect' do
       create_request
@@ -84,7 +90,7 @@ describe ItemsController, type: :controller do
   describe 'PUT #update' do
     subject(:update_request) { put :update, params: { id: item.id, item: new_attributes } }
 
-    let(:item) { create(:item) }
+    let(:item) { create(:item, user: user) }
     let(:new_attributes) { attributes_for(:item) }
 
     it 'returns http redirect' do
@@ -105,7 +111,7 @@ describe ItemsController, type: :controller do
   describe 'DELETE #destroy' do
     subject(:delete_request) { put :update, params: { id: item.id, item: new_attributes } }
 
-    let!(:item) { create(:item) }
+    let!(:item) { create(:item, user: user) }
     let(:new_attributes) { attributes_for(:item) }
 
     it 'returns http redirect' do

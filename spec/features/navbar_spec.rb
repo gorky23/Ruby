@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 describe 'Navbar' do
+  let(:user) { create(:user) }
   before do
+    login_as user
     visit '/'
   end
 
