@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   end
 
   resources :friends, only: %i[index show]
-  resources :invitations, only: %i[create]
-  member do
-    post :accept
-    post :reject
+  resources :invitations, only: %i[create] do
+    member do
+      post :accept
+      post :reject
+    end
   end
 end
