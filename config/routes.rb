@@ -14,4 +14,7 @@ Rails.application.routes.draw do
 
   resources :friends, only: %i[index show]
   resources :invitations, only: %i[create]
+  member do
+    post :accept
+  end
 end
