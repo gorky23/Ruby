@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   resources :invitations, only: %i[create]
   member do
     post :accept
+    post :reject
   end
 end

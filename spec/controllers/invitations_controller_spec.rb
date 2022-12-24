@@ -45,7 +45,7 @@ describe InvitationsController, type: :controller do
     let(:invitation) { create(:invitation, invited_id: user.id, invited_by_id: friend.id) }
     let(:params) {{ id: invitation.id }}
 
-    subject(:accept_request) { post: accept, params: params }
+    subject(:accept_request) { post :accept, params: params }
 
     it 'accepts the invitation' do
       except { accept_request }.to change { invitation.reload.state }.from("pending").to("accepted")
@@ -74,12 +74,40 @@ describe InvitationsController, type: :controller do
         invitation.accept!
       end
       it 'raises error' do
-        except { accept_request }.to raise_error
+        except { accept_request }.to raise_error AASM::InvalidTransition
       end
     end
   end
 
   describe '#reject' do
+    let(:friend) { create(:user) }
+    let(:invitation) { create(:invitation, invited_id: user.id, invited_by_id: friend.id) }
+    let(:params) {{ id: invitation.id }}
 
+    subject(:reject_request) { post :reject, params: params }
+
+    it 'rejects the invitation' do
+      except { reject_request }.to change { invitation.reload.state }.from("pending").to("rejected")
+    end
+
+    it 'does not create any friendship' do
+      except { reject_request }.not_to change(Friendship, :count)
+    end
+    context 'when invitation does not belong to user' do
+      let(:invitation) { create(:invitation, invited_by_id: friend.id, invited_id: 1233211222123) }
+
+      it 'cannot accept this invitation' do
+        except { reject_request }.to raise_error ActiveRecord::RecordNotFound
+      end
+    end
+
+    context 'when invitation cannot be accepted' do
+      before do
+        invitation.accept!
+      end
+      it 'raises error' do
+        except { reject_request }.to raise_error AASM::InvalidTransition
+      end
+    end
   end
 end

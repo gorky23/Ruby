@@ -20,6 +20,12 @@ class InvitationsController < ApplicationController
     redirect_to invitation_path
   end
 
+  def reject
+    invitation = current_user.received_invitations.find(params[:id])
+    invitation.reject!
+    redirect_to invitation_path
+  end
+
   private
 
   def invitation_params
