@@ -48,24 +48,24 @@ describe InvitationsController, type: :controller do
     subject(:accept_request) { post :accept, params: params }
 
     it 'accepts the invitation' do
-      except { accept_request }.to change { invitation.reload.state }.from("pending").to("accepted")
+      expect { accept_request }.to change { invitation.reload.state }.from("pending").to("accepted")
     end
 
     it 'creates friendship for users from invitation' do
-      except { accept_request }.to change(Friendship, :count).by(2)
+      expect { accept_request }.to change(Friendship, :count).by(2)
     end
 
     it 'users are friends' do
       accept_request
-      except(user.friends).to include friend
-      except(friend.friends).to include user
+      expect(user.friends).to include friend
+      expect(friend.friends).to include user
     end
 
     context 'when invitation does not belong to user' do
       let(:invitation) { create(:invitation, invited_by_id: friend.id, invited_id: 1233211222123) }
 
       it 'cannot accept this invitation' do
-        except { accept_request }.to raise_error ActiveRecord::RecordNotFound
+        expect { accept_request }.to raise_error ActiveRecord::RecordNotFound
       end
     end
 
@@ -74,7 +74,7 @@ describe InvitationsController, type: :controller do
         invitation.accept!
       end
       it 'raises error' do
-        except { accept_request }.to raise_error AASM::InvalidTransition
+        expect { accept_request }.to raise_error AASM::InvalidTransition
       end
     end
   end
@@ -87,17 +87,17 @@ describe InvitationsController, type: :controller do
     subject(:reject_request) { post :reject, params: params }
 
     it 'rejects the invitation' do
-      except { reject_request }.to change { invitation.reload.state }.from("pending").to("rejected")
+      expect { reject_request }.to change { invitation.reload.state }.from("pending").to("rejected")
     end
 
     it 'does not create any friendship' do
-      except { reject_request }.not_to change(Friendship, :count)
+      expect { reject_request }.not_to change(Friendship, :count)
     end
     context 'when invitation does not belong to user' do
       let(:invitation) { create(:invitation, invited_by_id: friend.id, invited_id: 1233211222123) }
 
       it 'cannot accept this invitation' do
-        except { reject_request }.to raise_error ActiveRecord::RecordNotFound
+        expect { reject_request }.to raise_error ActiveRecord::RecordNotFound
       end
     end
 
@@ -106,7 +106,7 @@ describe InvitationsController, type: :controller do
         invitation.accept!
       end
       it 'raises error' do
-        except { reject_request }.to raise_error AASM::InvalidTransition
+        expect { reject_request }.to raise_error AASM::InvalidTransition
       end
     end
   end

@@ -17,13 +17,13 @@ class InvitationsController < ApplicationController
       current_user.friends << invitation.inviting_user
       invitation.inviting_user.friends << current_user
     end
-    redirect_to invitation_path
+    redirect_to invitations_path
   end
 
   def reject
     invitation = current_user.received_invitations.find(params[:id])
     invitation.reject!
-    redirect_to invitation_path
+    redirect_to invitations_path
   end
 
   private
